@@ -5,7 +5,7 @@ body {
   font-family: "Times New Roman", Times, serif;
   background-color: rgba(255, 255, 255, 0.9);
 }
-
+/* Header */
 .header {
   background-color: rgb(119, 31, 15);
   color: #fff;
@@ -14,7 +14,6 @@ body {
   align-items: center;
   padding: 3px 0;
   height: 94;
-
   border: 3px solid rgb(72, 29, 16);
   /* Animation properties */
   animation: slideDown 2s ease-in-out forwards;
@@ -31,6 +30,7 @@ body {
   height: 101.5px;
 }
 
+/* Navbar */
 .navbar {
   background-color: transparent;
   padding: 0;
@@ -71,6 +71,7 @@ body {
 .menu-item a:hover:after {
   transform: scaleX(1);
 }
+
 @keyframes slideDown {
   from {
     transform: translateY(-100%);
@@ -83,10 +84,10 @@ body {
 }
 
 /* Main content */
-.main {
+/* .main {
   padding: 20px 0;
   margin-top: 100px;
-}
+} */
 
 .photo {
   position: relative;
@@ -179,102 +180,28 @@ aside.category-list a:after {
 aside.category-list a:hover:after {
   transform: scaleX(1);
 }
-
-/* Product list */
-section.product-list {
-  width: 75%; /* Adjusted width */
-  float: right;
-  padding: 10px;
-  margin-top: -20px; /* Adjusted margin-top value to bring product items higher */
-  margin-right: 53px; /* Adjusted margin-right value */
-  border-radius: 8px;
-  border-color: rgb(255, 255, 255, 0.9);
-}
-
-section.product-list h2 {
-  margin-bottom: 10px;
-}
-
-.product-item {
-  float: left; /* Consider using flexbox or grid layout for more modern and responsive approach */
-  width: 272.5px;
-  height: 275px; /* Adjust width as needed */
-  margin-top: 2px;
-  padding: 10px;
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
 }
 .product-item {
   position: relative;
-  overflow: hidden; /* This line is added to create a clipping area for the hover effect */
-}
-
-.product-image {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-.product-info {
-  position: absolute;
-  bottom: 0;
-  left: 5px;
-  width: 280px;
-  height: 50%;
-  background-color: rgba(255, 255, 255, 0.9);
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 0.1s ease;
-  transform: translateY(100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  visibility: hidden;
-  color: #333333; /* Font color set to black based on the image */
-  font-family: "Times new roman", serif; /* Font family set to Vollkorn Regular based on the image */
-}
-
-.product-item {
-  position: relative;
-  overflow: hidden; /* This line is added to create a clipping area for the hover effect */
-}
-
-.product-image {
+  width: 250px;
+  margin: 1%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.28);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+  margin-top: 10px;
+  border-color: rgb(255, 255, 255);
   opacity: 10;
-  transition: opacity 0.3s ease;
 }
-
-.product-info {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto; /* You can adjust this value to control how high the content goes */
-  background-color: rgba(255, 255, 255, 0.9);
-  opacity: 0;
-  transition: opacity 1s ease, transform 0.3s ease;
-  transform: translateY(100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Modified to position content at the top */
-  align-items: center;
-  text-align: center;
-  visibility: hidden;
-  color: #333333; /* Font color set to black based on the image */
-  font-family: "Times New Roman", serif; /* Font family set to Vollkorn Regular based on the image */
+.product-item img {
+  width: 250px;
+  height: 250px;
+  margin: 1%;
 }
-
-.product-item:hover .product-image {
-  opacity: 10;
-  transform: scale(1.1);
-}
-
-.product-item:hover .product-info {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* Added styles for the "Add To Cart" button container with curved corners */
-.product-info button {
+.product-info .addToCart {
   background-color: rgb(119, 31, 15); /* Red color based on the image */
   color: #fff; /* White color for text based on the image */
   padding: 10px 20px; /* Padding based on the image */
@@ -282,11 +209,23 @@ section.product-list h2 {
   font-size: 16px; /* Font size based on the image */
   font-weight: bold; /* Bold font weight based on the image */
   cursor: pointer; /* Set cursor to pointer on hover */
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 5px; /* Added border-radius for curved corners */
   margin-bottom: 20px; /* Added margin-bottom to move the button up */
+}
+.product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #333333; /* Font color set to black based on the image */
+  font-family: "Times New Roman", serif; /* Font family set to Vollkorn Regular based on the image */
+  background-color: rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  transition: opacity 1s ease, transform 0.3s ease;
+  transform: translateY(100%);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Added styles for the cart icon */
@@ -296,38 +235,9 @@ section.product-list h2 {
   margin-right: 10px; /* Add margin between icon and text */
 }
 
-/* Remove underline from "Braided Jute Basket (round)" link and increase font size */
-.product-info a {
-  text-decoration: none; /* Remove underline from links */
-  color: rgb(
-    119,
-    31,
-    15
-  ); /* Set link text color based on the image (optional) */
-  font-size: 20px; /* Increased font size (adjust as needed) */
-}
-.product-item img {
-  width: 272.5px;
-  height: 275px;
-  margin: 6px;
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out;
-  border-radius: 5px;
-}
-
-.cart-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.cart-item img {
-  width: 100px;
-  height: 100px;
-  margin-right: 20px;
-}
-
-.cart-item .product-info {
-  display: flex;
-  flex-direction: column;
+.product-item:hover .product-info {
+  opacity: 1;
+  height: auto;
+  visibility: visible;
+  transform: translateY(0);
 }
